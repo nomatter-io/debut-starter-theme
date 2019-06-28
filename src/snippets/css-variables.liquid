@@ -1,0 +1,84 @@
+{%- comment -%}
+  Based on the image overlay opacity, either lighten or darken the image on hover
+{%- endcomment -%}
+{% assign image_overlay_opacity = settings.image_overlay_opacity | divided_by: 100.00 %}
+
+{% if image_overlay_opacity > 0.85 %}
+  {% assign image_overlay_opacity_hover = image_overlay_opacity | minus: 0.3 %}
+{% else %}
+  {% assign image_overlay_opacity_hover = image_overlay_opacity | plus: 0.4 %}
+{% endif %}
+
+{% assign header_font = settings.type_header_font %}
+{% assign base_font = settings.type_base_font %}
+
+{% if settings.type_bold_product_titles %}
+  {%- assign header_font_bold = header_font | font_modify: 'weight', 'bolder' -%}
+{% endif %}
+
+{%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
+{%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
+{%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
+{%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
+
+
+<style>
+
+{% if settings.use_shopify_fonts %}
+  {{ header_font | font_face }}
+  {{ base_font | font_face }}
+  {{ header_font_bold | font_face }}
+  {{ base_font_bold | font_face }}
+  {{ base_font_bolder | font_face }}
+  {{ base_font_italic | font_face }}
+  {{ base_font_bold_italic | font_face }}
+{% endif %}
+
+
+:root {
+  --color-text: {{ settings.color_text }};
+  --color-text-brightness: {{ settings.color_text | color_brightness }};
+
+  --color-sale-text: {{ settings.color_sale_text }};
+
+  --color-small-button-text-border: {{ settings.color_small_button_text_border }};
+  --color-small-button-text-border-brightness: {{ settings.color_small_button_text_border | color_brightness }};
+
+  --color-text-field: {{ settings.color_text_field }};
+  --color-text-field-text: {{ settings.color_text_field_text }};
+  --color-navigation-text: {{ settings.color_text }};
+
+  --color-btn-primary: {{ settings.color_button }};
+  --color-btn-primary-brightness: {{ settings.color_button | color_brightness }};
+
+  --color-btn-primary-text: {{ settings.color_button_text }};
+
+  --color-image-overlay: {{ settings.color_image_overlay }};
+  --opacity-image-overlay: {{ settings.image_overlay_opacity | divided_by: 100.00 }};
+  --hover-overlay-opacity: {{ image_overlay_opacity_hover | at_most: 1 }};
+
+  --color-overlay-title-text: {{ settings.color_image_overlay_text }};
+  --color-overlay-title-text-brightness: {{ settings.color_image_overlay_text | color_brightness }};
+
+  --color-body: {{ settings.color_body_bg }};
+  --color-bg: {{ settings.color_body_bg }};
+  --color-bg-alt: {{ settings.color_body_text | color_modify: 'alpha', 0.05 }};
+
+  --color-border: {{ settings.color_borders }};
+  --color-border-brightness: {{ settings.color_borders | color_brightness }};
+
+  --font-weight-body--bold: {{ base_font_bold.weight | default: 700 }};
+  --font-weight-body--bolder: {{ base_font_bolder.weight | default: 700 }};
+  --font-weight-header--bold: {{ header_font_bold.weight | default: 700 }};
+
+  --font-stack-header: {{ header_font.family }}, {{ header_font.fallback_families }};
+  --font-style-header: {{ header_font.style }};
+  --font-weight-header: {{ header_font.weight }};
+
+  --font-stack-body: {{ base_font.family }}, {{ base_font.fallback_families }};
+  --font-style-body: {{ base_font.style }};
+  --font-weight-body: {{ base_font.weight }};
+
+  --font-bold-titles: {{ settings.type_bold_product_titles }};
+}
+</style>

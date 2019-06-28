@@ -1,0 +1,13 @@
+.rich-text__heading--large {
+  font-size: 1.4em; //24px default
+}
+.rich-text__heading--small {
+  font-size: 0.88em; //16px default
+}
+
+.rich-text__text--large {
+  font-size: em(floor($font-size-base * 1.15));
+}
+.rich-text__text--small {
+  font-size: em(floor($font-size-base * 0.88));
+}

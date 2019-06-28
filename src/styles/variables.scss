@@ -1,0 +1,230 @@
+// Comment dynamic and uncomment dynamic if you don't want sass vars to be
+// adjustable via the shopify admin.
+@import './variables-dynamic';
+// @import './variables-static';
+
+/*================ VARIABLES ================*/
+/*============================================================================
+  Grid Breakpoints and Class Names
+    - Do not change the variable names
+    - $grid-narrowscreen is based on a Shopify breakpoint for checkout buttons
+==============================================================================*/
+$grid-narrowscreen: 500px;
+$grid-medium: 750px;
+$grid-large: 990px;
+$grid-widescreen: 1400px;
+$grid-gutter: 30px;
+$grid-gutter-mobile: 22px;
+
+$narrowscreen: 'narrowscreen';
+$small: 'small';
+$medium: 'medium';
+$medium-down: 'medium-down';
+$medium-up: 'medium-up';
+$large: 'large';
+$large-down: 'large-down';
+$large-up: 'large-up';
+$widescreen: 'widescreen';
+
+/*============================================================================
+  Generate breakpoint-specific column widths and push classes
+    - Default column widths: $grid-breakpoint-has-widths: ($small, $medium-up);
+    - Default is no push classes
+==============================================================================*/
+$grid-breakpoint-has-widths: ($small, $medium-up);
+$grid-breakpoint-has-push: ($small, $medium-up);
+
+/*================ Color Variables ================*/
+
+
+// Hover and focus states
+$color-text-focus: adaptiveColor($color-text, $color-text-brightness);
+$color-overlay-text-focus: adaptiveColor($color-overlay-title-text, $color-overlay-title-text-brightness);
+$color-btn-primary-focus: adaptiveColor($color-btn-primary, $color-btn-primary-brightness);
+$color-btn-social-focus: adaptiveColor($color-border, $color-border-brightness);
+$color-small-button-text-border-focus: adaptiveColor($color-small-button-text-border, $color-small-button-text-border-brightness);
+
+// Link buttons and secondary cta
+$color-link: $color-body-text;
+$opacity-link-hover: 0.6;
+$transition-link-hover: 0.1s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+
+// Helper colors for form error states
+$color-disabled: #f4f4f4;
+$color-disabled-border: #f4f4f4;
+$color-error: #d20000;
+$color-error-bg: #fff8f8;
+$color-success: #1F873D;
+$color-success-bg: #f8fff9;
+
+// Forms
+$color-form-text: #333;
+$color-error-input-text: $color-error;
+$input-padding-top-bottom: 10px;
+$input-padding-left-right: 18px;
+$input-padding-top-bottom-small: 8px;
+$input-padding-left-right-small: 15px;
+$input-group-height: 46px;
+$input-group-height-small: 42px;
+
+// Social icons
+$color-facebook: #3b5998;
+$color-twitter: #00aced;
+$color-pinterest: #cb2027;
+
+/*================ Sizing Variables ================*/
+$width-site: 1200px;
+$gutter-site: 55px;
+$gutter-site-mobile: 22px;
+$section-spacing: 55px;
+$section-spacing-small: 35px;
+$border-radius: 2px;
+
+/*================ Footer Variables ================*/
+$footer-spacing-extra-small: 5px;
+$footer-spacing-small: 15px;
+$footer-wrapper-spacing: 18px;
+$footer-hr-bottom-spacing: 20px;
+$footer-spacing-medium: 25px;
+$footer-spacing-large: 45px;
+
+/*================ Z-Index ================*/
+$z-index-dropdown : 7;
+$z-index-sub-nav: 8;
+$z-index-drawer: 9;
+$z-index-announcement-bar: 10;
+$z-index-skip-to-content: 10000; // really high to be safe of app markup
+
+/*================ SVG ================*/
+$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0040/7984/5425/t/1/assets/ico-select.svg?171'};
+
+/*================ Drawers ================*/
+$transition-drawer: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
+
+/*================ Hero Slider ================*/
+$color-slideshow-arrows: #000;
+$color-slideshow-dots: #fff;
+
+/*================ Typography ================*/
+$font-stack-cart-notification: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$font-size-mobile-input: 16px; // min 16px to prevent zooming
+
+/*================ Gift Cards ================*/
+$color-giftcard-tooltip-fallback: #333;
+$color-giftcard-light: #fff;
+$color-giftcard-tooltip: rgba(0, 0, 0, 0.9);
+$color-giftcard-disabled: #999;
+$color-giftcard-small-text: #b3b3b3;
+$color-giftcard-shadow: rgba(0, 0, 0, 0.1);
+$color-giftcard-print-bg: #fff;
+$color-giftcard-print: #000;
+$color-giftcard-bg: #e95e61;
+
+/*================ Z-index ================*/
+$z-index-giftcard-image: 2;
+$z-index-giftcard-corners: 3;
+$z-index-giftcard-tooltip: 4;
+$z-index-giftcard-code: 5;
+
+/*================ VENDOR ================*/
+/*============================================================================
+  Slick Slider 1.6.0
+
+  - If upgrading Slick's styles, use the following variables/functions
+    instead of the slick defaults (from slick-theme.scss)
+  - This file includes default slick.scss styles (at Slick Slider SCSS)
+    and slick-theme.scss (at Slick Slider Theme). Upgrade each area individually.
+  - Remove `outline: none` from `.slick-dots li button`
+==============================================================================*/
+$slick-font-family: "slick-icons, sans-serif";
+$slick-arrow-color: $color-slideshow-arrows;
+$slick-dot-color: $color-slideshow-dots;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: '\2190';
+$slick-next-character: '\2192';
+$slick-dot-character: '\2022';
+$slick-dot-size: 6px;
+$slick-opacity-default: 0.75;
+$slick-opacity-on-hover: 1;
+$slick-opacity-not-active: 0.25;
+$slick-dot-size: 12px;
+$slick-dot-size-small: 10px;
+
+
+/*============================================================================
+  #Grid
+==============================================================================*/
+
+// The `$grid-breakpoints` list is used to build our media queries.
+// You can use these in the media-query mixin.
+$grid-breakpoints: (
+  $narrowscreen '(max-width: #{$grid-narrowscreen})',
+  $small '(max-width: #{$grid-medium - 1})',
+  $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
+  $medium-down '(max-width: #{$grid-large - 1})',
+  $medium-up '(min-width: #{$grid-medium})',
+  $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',
+  $large-down '(max-width: #{$grid-widescreen - 1})',
+  $large-up '(min-width: #{$grid-large})',
+  $widescreen '(min-width: #{$grid-widescreen})'
+);
+
+/*============================================================================
+  Hero slider
+
+  Extends default slick slider styles.
+  Extra specificity in selectors is used to override defaults.
+==============================================================================*/
+$slideshow-height-small: 475px;
+$slideshow-height-medium: 650px;
+$slideshow-height-large: 775px;
+$slideshow-control-size: 44px;
+$slideshow-dot-size: 9px;
+$slideshow-loader: #fff;
+$z-index-slideshow-image: 1;
+$z-index-slideshow-text: 2;
+$z-index-slideshow-controls: 3;
+$color-slideshow-controls: #fff;
+$color-slideshow-controls-background: #000;
+$color-slideshow-close-bg: #fff;
+$color-slideshow-close-text: #000;
+
+$ease-transition: cubic-bezier(0.44, 0.13, 0.48, 0.87);
+$transition-text-slideshow: 0.6s $ease-transition;
+$transition-image-slideshow: opacity 0.8s $ease-transition;
+$transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.2s $ease-transition;
+
+
+// VIDEO
+$video-height-small: 475px;
+$video-height-medium: 650px;
+$video-height-large: 775px;
+
+$z-index-video-image: 1;
+$z-index-video: 2;
+$z-index-video-text: 3;
+$z-index-video-controls: 4;
+$z-index-video-loader: 5;
+
+$video-button-wrapper-size: 50px;
+$video-pause-button-size: 34px;
+$video-close-button-size: 30px;
+$video-loader-size: 2.875rem;
+
+$color-video-controls: #fff;
+$color-video-controls-background: #000;
+
+$ease-transition: cubic-bezier(0.44, 0.13, 0.48, 0.87);
+$transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $ease-transition;
+
+
+$color-blankstate: rgba($color-body-text, 0.35);
+$color-blankstate-border: rgba($color-body-text, 0.2);
+$color-blankstate-background: rgba($color-body-text, 0.1);
+
+$return-button-width: 55px;
+$nav-button-padding: 15px;
+
+$toolbar-height: 55px;
+$toolbar-height-small: 46px;

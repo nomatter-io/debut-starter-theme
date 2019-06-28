@@ -1,0 +1,287 @@
+/*================ #Helper Classes ================*/
+.clearfix {
+  @include clearfix();
+}
+
+.visually-hidden {
+  @include visually-hidden();
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.visually-hidden--inline {
+  margin: 0;
+  height: 1em;
+}
+
+.visually-hidden--static {
+  position: static !important;
+}
+
+.js-focus-hidden:focus {
+  outline: none;
+}
+
+// Only show when JS is not supported
+.no-js:not(html) {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+// Only show when JS is supported
+.js {
+  .no-js & {
+    display: none;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+/*============================================================================
+  Skip to content button
+    - Overrides .visually-hidden when focused
+==============================================================================*/
+.skip-link:focus {
+  clip: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+  color: $color-text;
+  background-color: $color-bg;
+  padding: 10px;
+  opacity: 1;
+  z-index: $z-index-skip-to-content;
+  transition: none;
+}
+
+/*=============== Lazy loading ===================*/
+
+.box {
+    background: no-repeat;
+    background-color: #f7f7f7;
+    background-size: contain;
+}
+.ratio-container {
+    position: relative;
+}
+.ratio-container:after {
+    content:'';
+    display: block;
+    height: 0;
+    width: 100%;
+    /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
+    padding-bottom: 50%;
+    content:"";
+}
+.ratio-container > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*================ Flex item alignment ================*/
+.align--top-middle {
+  text-align: center;
+}
+
+.align--top-right {
+  text-align: right;
+}
+
+.align--middle-left {
+  @include align-self(center);
+}
+
+.align--center {
+  @include align-self(center);
+  text-align: center;
+}
+
+.align--middle-right {
+  @include align-self(center);
+  text-align: right;
+}
+
+.align--bottom-left {
+  @include align-self(flex-end);
+}
+
+.align--bottom-middle {
+  @include align-self(flex-end);
+  text-align: center;
+}
+
+.align--bottom-right {
+  @include align-self(flex-end);
+  text-align: right;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $color-border;
+}
+
+.border-top {
+  border-top: 1px solid $color-border;
+}
+
+.empty-page-content {
+  padding: 125px $gutter-site;
+
+  @include media-query($small) {
+    padding-left: $gutter-site-mobile;
+    padding-right: $gutter-site-mobile;
+  }
+}
+
+/*============================================================================
+  Animation Classes and Keyframes
+==============================================================================*/
+.is-transitioning {
+  // sass-lint:disable no-important
+  display: block !important;
+  visibility: visible !important;
+}
+
+@include keyframes(spin) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+@include keyframes(placeholder-background-loading) {
+  0% {
+    opacity: 0.02;
+  }
+
+   50% {
+    opacity: 0.05;
+  }
+
+   100% {
+    opacity: 0.02;
+  }
+}
+
+.index-section {
+  padding-top: $section-spacing-small;
+  padding-bottom: $section-spacing-small;
+
+  @include media-query($medium-up) {
+    padding-top: $section-spacing;
+    padding-bottom: $section-spacing;
+  }
+
+  &:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.index-section--flush + .index-section--flush {
+  margin-top: -($section-spacing-small * 2);
+}
+
+[class*="index-section--flush"] + [class*="index-section--flush"] {
+  @include media-query($medium-up) {
+    margin-top: -($section-spacing * 2);
+  }
+}
+
+// Flush sections should be tight to the nav if they are the first on the page
+.index-section--flush:first-child {
+  margin-top: -$section-spacing-small;
+}
+
+[class*="index-section--flush"]:first-child {
+  @include media-query($medium-up) {
+    margin-top: -$section-spacing;
+  }
+}
+
+// Flush sections should be tight to the footer if they are last on the page
+.index-section--flush:last-child {
+  margin-bottom: -$section-spacing-small;
+}
+
+[class*="index-section--flush"]:last-child {
+  @include media-query($medium-up) {
+    margin-bottom: -$section-spacing;
+  }
+}
+
+// Visually align featured product section (if first on homepage on mobile)
+.index-section--featured-product:first-child {
+  @include media-query($small) {
+    margin-top: -12px;
+  }
+}
+
+// Override for slideshow on mobile
+.index-section--slideshow + .index-section--flush {
+  @include media-query($small) {
+    margin-top: 0.4rem;
+  }
+}
+
+.placeholder-svg {
+  display: block;
+  fill: $color-blankstate;
+  background-color: $color-blankstate-background;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid $color-blankstate-border;
+}
+
+.placeholder-noblocks {
+  padding: 40px;
+  text-align: center;
+}
+
+// Mimic a background image by wrapping the placeholder svg with this class
+.placeholder-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .icon {
+    border: 0;
+  }
+}
+
+.placeholder-background--animation {
+  background-color: $color-text;
+
+  @include animation(placeholder-background-loading 1.5s infinite linear);
+
+  .no-js & {
+    display: none;
+  }
+}
+
+// Custom styles for some blank state images
+.image-bar__content .placeholder-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

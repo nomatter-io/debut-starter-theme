@@ -1,0 +1,71 @@
+/*================ SASS HELPERS ================*/
+/*============================================================================
+  Convert pixels to ems
+  eg. for a relational value of 12px write em(12) when the parent is 16px
+  if the parent is another value say 24px write em(12, 24)
+  Based on https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/functions/_px-to-em.scss
+==============================================================================*/
+@function em($pxval, $base: $font-size-base) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1em;
+}
+
+/*============================================================================
+  Strips the unit from a number.
+  @param {Number (With Unit)} $value
+  @example scss - Usage
+    $dimension: strip-units(10em);
+  @example css - CSS Output
+    $dimension: 10;
+  @return {Number (Unitless)}
+  based on https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/functions/_strip-units.scss
+==============================================================================*/
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+/*============================================================================
+  Return a color based on the brightness of an existing color.
+  Need to pass in brightness because it is calculated with Liquid.
+  @param {Number} $brightness
+  @param {String} $color
+  @example scss - Usage
+    $focusColor: adaptiveColor(#000, 0);
+  @example css - CSS Output
+    $focusColor: #404040;
+  @return {String}
+==============================================================================*/
+
+@function adaptiveColor($color, $brightness) {
+  @if $brightness <= 26 {
+    @return lighten($color, 25%);
+  }
+  @if $brightness <= 64 {
+    @return lighten($color, 15%);
+  } @else {
+    @return darken($color, 10%);
+  }
+}
+
+/*================ VENDOR ================*/
+/*============================================================================
+  Slick Slider 1.6.0
+
+  - If upgrading Slick's styles, use the following variables/functions
+    instead of the slick defaults (from slick-theme.scss)
+  - This file includes default slick.scss styles (at Slick Slider SCSS)
+    and slick-theme.scss (at Slick Slider Theme). Upgrade each area individually.
+  - Remove `outline: none` from `.slick-dots li button`
+==============================================================================*/
+// Only called once so make sure proper file is grabbed
+@function slick-image-url($url) {
+  @return url($ajax-loader-url);
+}
+
+// Unused intentionally
+@function slick-font-url($url) {}

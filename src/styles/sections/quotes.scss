@@ -1,0 +1,51 @@
+/*================ Quote slider ================*/
+.quote-icon {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+// Text styles
+.quotes-slider__text {
+  font-size: em($font-size-base + 1.75);
+  font-weight: $font-weight-body;
+  font-style: $font-style-body;
+  padding: 0 ($grid-gutter / 2);
+
+  cite {
+    font-size: em($font-size-base, $font-size-base + 4);
+    font-style: normal;
+  }
+
+  p {
+    margin-bottom: $grid-gutter;
+
+    + cite {
+      margin-top: 0;
+    }
+  }
+}
+
+// Slick overrides
+.slick-dotted.quotes-slider.slick-initialized {
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+// Slick dot positioning and color
+.quotes-wrapper .slick-dots {
+  position: relative;
+  bottom: 0;
+  margin-top: $section-spacing;
+
+  // sass-lint:disable SelectorDepth
+  li button::before {
+    color: $color-text;
+    opacity: 0.2;
+  }
+}
+
+// Slick selected outline overrides
+.quotes-wrapper .slick-slide[tabindex="0"] {
+  outline: none;
+}

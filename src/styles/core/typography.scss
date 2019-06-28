@@ -1,0 +1,656 @@
+/*================ Typography ================*/
+
+// Add your @font-face definitions here.
+
+/*================ Typography ================*/
+blockquote {
+  font-size: em(18px);
+  font-style: normal;
+  text-align: center;
+  padding: 0 30px;
+  margin: 0;
+
+  .rte & {
+    border-color: $color-border;
+    border-width: 1px 0;
+    border-style: solid;
+    padding: 30px 0;
+    margin-bottom: $gutter-site / 2;
+  }
+
+  p + cite {
+    margin-top: $gutter-site / 2;
+  }
+
+  cite {
+    display: block;
+    font-size: 0.85em;
+    font-weight: $font-weight-body;
+
+    &::before {
+      content: '\2014 \0020';
+    }
+  }
+}
+
+code,
+pre {
+  font-family: Consolas, monospace;
+  font-size: 1em;
+}
+
+pre {
+  overflow: auto;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  font-size: $font-size-base;
+  font-family: $font-stack-body;
+  font-style: $font-style-body;
+  font-weight: $font-weight-body;
+  color: $color-text;
+  line-height: 1.5;
+}
+
+// Prevent zoom on touch devices in active inputs
+@include media-query($medium-down) {
+  input,
+  textarea,
+  select,
+  button {
+    font-size: $font-size-mobile-input;
+  }
+}
+
+/*================ Headings ================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 ($section-spacing-small / 2);
+  font-family: $font-stack-header;
+  font-style: $font-style-header;
+  font-weight: $font-weight-header;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+  }
+}
+
+h1 {
+  font-size: em(floor($font-size-header * 1.35));
+  text-transform: none;
+  letter-spacing: 0;
+
+  @include media-query($small) {
+    font-size: em(floor($font-size-header * 1.25));
+  }
+}
+
+h2 {
+  font-size: em(floor($font-size-header * 0.78));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  @include media-query($small) {
+    font-size: em(floor(($font-size-header * 0.78) * 0.9));
+  }
+}
+
+h3 {
+  font-size: em($font-size-header);
+  text-transform: none;
+  letter-spacing: 0;
+
+  @include media-query($small) {
+    font-size: em(floor($font-size-header * 0.78));
+  }
+}
+
+h4 {
+  font-size: em(floor($font-size-header * 0.68));
+
+  @include media-query($small) {
+    font-size: em(floor(($font-size-header * 0.68) * 0.9));
+  }
+}
+
+h5 {
+  font-size: em(floor($font-size-header * 0.58));
+
+  @include media-query($small) {
+    font-size: em(floor(($font-size-header * 0.58) * 0.9));
+  }
+}
+
+h6 {
+  font-size: em(floor($font-size-header * 0.54));
+
+  @include media-query($small) {
+    font-size: em(floor(($font-size-header * 0.54) * 0.9));
+  }
+}
+
+.h1 {
+  @extend h1;
+}
+
+.h2 {
+  @extend h2;
+}
+
+.h3 {
+  @extend h3;
+}
+
+.h4 {
+  @extend h4;
+}
+
+.h5 {
+  @extend h5;
+}
+
+.h6 {
+  @extend h6;
+}
+
+/*================ RTE headings ================*/
+.rte {
+  color: $color-body-text;
+  margin-bottom: $section-spacing-small;
+
+  // If an .rte div is the last element in its parent,
+  // make it flush with the bottom of the container
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: $gutter-site;
+    margin-bottom: $gutter-site / 2;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  li {
+    margin-bottom: 4px;
+    list-style: inherit;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// rte setting type to act like a <p> tag
+.rte-setting {
+  margin-bottom: $section-spacing-small / 1.8; // same as p
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*================ Paragraph styles ================*/
+p {
+  color: $color-body-text;
+  margin: 0 0 ($section-spacing-small / 1.8);
+
+  @include media-query($small) {
+    font-size: em($font-size-base - 1);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*================ Lists ================*/
+li {
+  list-style: none;
+}
+
+/*================ Misc styles ================*/
+.fine-print {
+  font-size: em(14);
+  font-style: italic;
+}
+
+.txt--minor {
+  font-size: 80%; // match <small>
+}
+
+.txt--emphasis {
+  font-style: italic;
+}
+
+.address {
+  margin-bottom: $gutter-site;
+}
+
+/*================ Hero and slideshow headers ================*/
+.mega-title,
+.mega-subtitle {
+  color: $color-overlay-title-text;
+  .hero & {
+    text-shadow: 0 0 4px $color-text-shadow;
+  }
+  @include media-query($medium-up) {
+    text-shadow: 0 0 4px $color-text-shadow;
+  }
+}
+
+.mega-title {
+  margin-bottom: 8px;
+}
+
+.mega-title--large {
+  font-size: em($font-size-header + 8);
+
+  @include media-query($medium-up) {
+    font-size: em(floor($font-size-header * 2.5));
+  }
+}
+
+.mega-subtitle {
+  @include media-query($medium-up) {
+    font-size: em($font-size-base + 4);
+    margin: 0 auto;
+
+    .text-center & {
+      max-width: 75%;
+    }
+  }
+
+  p {
+    color: $color-overlay-title-text;
+  }
+
+  a {
+    color: $color-overlay-title-text;
+    border-bottom: 1px solid currentColor;
+
+    &:hover,
+    &:focus {
+      color: $color-overlay-text-focus;
+    }
+  }
+}
+
+.mega-subtitle--large {
+  font-size: em($font-size-base + 2);
+  font-weight: $font-weight-header;
+
+  @include media-query($medium-up) {
+    font-size: em($font-size-base + 8);
+  }
+}
+
+/*================ #Icons ================*/
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  fill: currentColor;
+
+  .no-svg & {
+    display: none;
+  }
+}
+
+svg,
+symbol {
+  &.icon:not(.icon--full-color) {
+    circle,
+    ellipse,
+    g,
+    line,
+    path,
+    polygon,
+    polyline,
+    rect {
+      fill: inherit;
+      stroke: inherit;
+    }
+
+    .icon-error__symbol {
+      fill: #ffffff;
+    }
+  }
+}
+
+/*============================================================================
+  A generic way to visually hide content while
+  remaining accessible to screen readers (h5bp.com)
+==============================================================================*/
+.icon__fallback-text {
+  @extend .visually-hidden;
+
+  .no-svg & {
+    // sass-lint:disable no-important
+    position: static !important;
+    overflow: inherit;
+    clip: none;
+    height: auto;
+    width: auto;
+    margin: 0;
+  }
+}
+
+/*================ Payment Icons ================*/
+.payment-icons {
+  @include user-select();
+  cursor: default;
+
+  @include media-query($small) {
+    line-height: 40px;
+  }
+
+  .icon {
+    width: 38px;
+    height: 24px;
+    fill: inherit;
+  }
+}
+
+/*================ Social Icons ================*/
+.social-icons .icon {
+  width: 23px;
+  height: 23px;
+
+  @include media-query($medium-up) {
+    width: 25px;
+    height: 25px;
+  }
+
+  &.icon--wide {
+    width: 40px;
+  }
+}
+
+/*================ #Lists ================*/
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ol {
+  list-style: decimal;
+}
+
+.list--inline {
+  padding: 0;
+  margin: 0;
+
+  & > li {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
+/*================ #Rich Text Editor ================*/
+.rte {
+  img {
+    height: auto;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 ($section-spacing-small / 2) $section-spacing-small;
+
+    &.list--inline {
+      margin-left: 0;
+    }
+  }
+
+  ul {
+    list-style: disc outside;
+
+    ul {
+      list-style: circle outside;
+
+      ul {
+        list-style: square outside;
+      }
+    }
+  }
+
+  a:not(.btn) {
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+}
+
+.text-center.rte,
+.text-center .rte {
+  ul,
+  ol {
+    margin-left: 0;
+    list-style-position: inside;
+  }
+}
+
+// allows tables to scroll when needed since we don't know
+// how many columns they will contain. Class added by JS.
+.scrollable-wrapper {
+  // sass-lint:disable no-misspelled-properties
+  max-width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*================ #Links and Buttons ================*/
+a {
+  color: $color-text;
+  text-decoration: none;
+
+  &:not([disabled]):hover,
+  &:focus {
+    color: $color-text-focus;
+  }
+
+  &.classic-link {
+    text-decoration: underline;
+  }
+}
+
+a[href^="tel"] {
+  color: inherit;
+}
+
+/*================ Buttons ================*/
+.btn {
+  @include user-select();
+  @include prefix(appearance, none, webkit moz spec);
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  padding: $input-padding-top-bottom-small $input-padding-left-right-small;
+  background-color: $color-btn-primary;
+  color: $color-btn-primary-text;
+  font-family: $font-stack-header;
+  font-style: $font-style-header;
+  font-weight: $font-weight-header;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: normal;
+  font-size: $font-size-base - 2;
+
+  @include media-query($medium-up) {
+    padding: $input-padding-top-bottom $input-padding-left-right;
+  }
+
+  &:not([disabled]):hover,
+  &:focus {
+    color: $color-btn-primary-text;
+    background-color: $color-btn-primary-focus;
+  }
+
+  .icon-arrow-right,
+  .icon-arrow-left {
+    height: 9px;
+  }
+
+  &[disabled] {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: $color-btn-primary;
+  border-color: $color-btn-primary;
+
+  &:not([disabled]):hover,
+  &:focus {
+    background-color: transparent;
+    color: $color-btn-primary-focus;
+    border-color: $color-btn-primary-focus;
+  }
+}
+
+.btn--secondary-accent {
+  background-color: $color-body;
+  color: $color-btn-primary;
+  border-color: $color-btn-primary;
+
+  &:not([disabled]):hover,
+  &:focus {
+    background-color:$color-body;
+    color: $color-btn-primary-focus;
+    border-color: $color-btn-primary-focus;
+  }
+}
+
+.btn--small {
+  padding: 8px 10px;
+  font-size: em(12);
+  line-height: 1;
+}
+
+.btn--tertiary {
+  background-color: transparent;
+  color: $color-small-button-text-border;
+  border-color: $color-small-button-text-border;
+
+  &:not([disabled]):hover,
+  &:focus {
+    background-color: transparent;
+    color: $color-small-button-text-border-focus;
+    border-color: $color-small-button-text-border-focus;
+  }
+}
+
+/*================ Button variations ================*/
+@include media-query($small) {
+  .btn--small-wide {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.btn--link {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  color: $color-text;
+  text-align: left;
+
+  &:not([disabled]):hover,
+  &:focus {
+    color: $color-text-focus;
+    background-color: transparent;
+  }
+
+  .icon {
+    vertical-align: middle;
+  }
+}
+
+.btn--narrow {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn--has-icon-after {
+  .icon {
+    margin-left: 10px;
+  }
+}
+
+.btn--has-icon-before {
+  .icon {
+    margin-right: 10px;
+  }
+}
+
+/*================ Force an input/button to look like a text link ================*/
+.text-link {
+  display: inline;
+  border: 0 none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.text-link--accent {
+  color: $color-btn-primary;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+
+  &:not([disabled]):hover,
+  &:focus {
+    color: $color-btn-primary-focus;
+  }
+}
+
+/*================ Return to collection/blog links ================*/
+.return-link-wrapper {
+  margin-top: ($section-spacing * 1.5);
+  margin-bottom: 0;
+
+  @include media-query($small) {
+    margin-top: $section-spacing;
+  }
+}
+
+.full-width-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}

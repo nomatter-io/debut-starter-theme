@@ -1,0 +1,59 @@
+// Text colors
+$color-text: #3d4246;
+$color-text-brightness: 64.96;
+$color-text-shadow: rgba(0,0,0,0.4);
+
+$color-body-text: #69727b;
+$color-sale-text: #557B97;
+
+$color-small-button-text-border: #3d4246;
+$color-small-button-text-border-brightness: 64.96;
+
+$color-text-field: #fff;
+$color-text-field-text: #000;
+$color-navigation-text: #3d4246;
+
+// Button colors
+$color-btn-primary: #557B97;
+$color-btn-primary-brightness: 114.83;
+
+$color-btn-primary-text: #fff;
+
+// Backgrounds
+$color-body: #fff;
+$color-bg: #fff;
+$color-drawer-background: rgba(0, 0, 0, 0.6);
+$color-bg-alt: rgba(105, 114, 123, 0.05);
+
+// Overlays
+$color-overlay-title-text: #fff;
+$color-overlay-title-text-brightness: 255.0;
+$color-image-overlay: #3d4246;
+$opacity-image-overlay: 0.4;
+$hover-overlay-opacity: 0.8;
+
+// Border colors
+$color-border: #e8e9eb;
+$color-border-brightness: 232.93;
+
+/*================ Typography ================*/
+$font-weight-body--bold: 700;
+$font-weight-body--bolder: 700;
+$font-weight-header--bold: 700;
+
+$font-stack-header: "Work Sans", sans-serif;
+$font-style-header: normal;
+$font-weight-header: 600;
+
+$font-stack-body: "Work Sans", sans-serif;
+$font-style-body: normal;
+$font-weight-body: 400;
+
+$font-size-header: 26 * 1px;
+$font-bold-titles: false;
+
+$font-size-base: 16px; // Henceforth known as 1em
+
+// URLs
+$ajax-loader-url: #{'//cdn.shopify.com/s/files/1/0040/7984/5425/t/1/assets/ajax-loader.gif?171'};
+$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0040/7984/5425/t/1/assets/ico-select.svg?171'};

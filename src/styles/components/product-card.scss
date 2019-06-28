@@ -1,0 +1,23 @@
+.product-card {
+  position: relative;
+
+  &:hover,
+  &:focus-within {
+    .product-card__image-wrapper {
+      opacity: 0.8;
+    }
+
+    .product-card__title {
+      border-bottom-color: $color-text;
+    }
+  }
+}
+
+.product-card__image-with-placeholder-wrapper {
+  position: relative;
+}
+
+.product-card__title {
+  border-bottom: 1px solid transparent;
+  display: inline;
+}

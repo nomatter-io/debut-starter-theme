@@ -1,0 +1,100 @@
+.sidebar {
+  margin-top: 40px;
+}
+
+.sidebar__list {
+  list-style: none;
+  margin-bottom: $gutter-site;
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.pagination {
+  text-align: center;
+  list-style: none;
+  font-size: em(15);
+  padding-top: $section-spacing;
+
+  li {
+    display: inline-block;
+  }
+
+  .icon {
+    display: block;
+    height: 20px;
+    vertical-align: middle;
+  }
+}
+
+.pagination__text {
+  padding: 0 ($gutter-site / 2);
+}
+
+.comment {
+  margin-bottom: $grid-gutter;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.comment__content {
+  margin-bottom: 5px;
+}
+
+.comment__meta-item {
+  margin-right: 10px;
+  font-size: em(14);
+
+  &:first-child::before {
+    content: '\2014 \0020';
+  }
+}
+
+.social-sharing {
+  display: flex;
+  .template-password & {
+    justify-content: center;
+  }
+}
+
+.btn--share {
+  background-color: transparent;
+  border-color: $color-border;
+  color: $color-text;
+  margin-right: 5px;
+  margin-bottom: 10px;
+
+  &:not([disabled]):hover,
+  &:focus {
+    background-color: transparent;
+    border-color: $color-btn-social-focus;
+    color: $color-text;
+  }
+
+  .icon {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+
+  .icon-facebook {
+    fill: $color-facebook;
+  }
+
+  .icon-twitter {
+    fill: $color-twitter;
+  }
+
+  .icon-pinterest {
+    fill: $color-pinterest;
+  }
+}
+
+.share-title {
+  display: inline-block;
+  vertical-align: middle;
+}

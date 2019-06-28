@@ -1,0 +1,183 @@
+.map-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  @include display-flexbox();
+  @include align-items(center);
+  @include flex-wrap(wrap);
+  @include flex-direction(row);
+
+  @include media-query($medium-up) {
+    min-height: 500px;
+  }
+}
+
+.map-section--load-error {
+  height: auto;
+}
+
+.map-section__wrapper {
+  height: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  @include flex-basis(100%);
+
+  @include display-flexbox();
+  @include flex-wrap(wrap);
+  @include flex-direction(row);
+}
+
+.map-section__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+}
+
+.map-section__error {
+  position: relative;
+  z-index: 3;
+
+  @include media-query($medium-up) {
+    position: absolute;
+    margin: 0 2rem;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+}
+
+.map-section__content-wrapper {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  @include display-flexbox();
+  @include flex-basis(100%);
+  flex-grow: 0;
+
+  @include media-query($medium) {
+    @include flex-basis(50%);
+  }
+
+  @include media-query($large-up) {
+    @include flex-basis(33%);
+  }
+}
+
+.map-section__content {
+  position: relative;
+  display: inline-block;
+  background-color: $color-bg-alt;
+  padding: $section-spacing-small;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  @include display-flexbox();
+  @include align-items(center);
+  @include flex-wrap(wrap);
+  @include align-content(center);
+
+  // Make sure every children is on one line
+  & > * {
+    width: 100%;
+  }
+
+  @include media-query($medium-up) {
+    background-color: $color-bg;
+    margin: $gutter-site 0;
+    min-height: 300px;
+  }
+
+  .map-section--load-error & {
+    position: static;
+    transform: translateY(0);
+  }
+}
+
+.map-section__link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  @include transform(translateX(-50%));
+}
+
+// Optically center map in visible area with
+// extended height/widths and negative margins
+.map-section__container {
+  max-width: none;
+  width: 100%;
+  height: 55vh;
+  left: 0;
+
+  @include media-query($medium-up) {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    // map is centered on resize, larger widths allow pin to be off-center
+    width: 130%;
+  }
+}
+
+.map_section__directions-btn {
+  [class^="icon"] {
+    height: 1em;
+  }
+
+  * {
+    vertical-align: middle;
+  }
+}
+
+.map-section__background-wrapper {
+  overflow: hidden;
+  position: relative;
+  @include flex-basis(100%);
+
+  @include media-query($medium-up) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-section--onboarding & {
+    min-height: 55vh;
+  }
+}
+
+.map-section__image {
+  height: 100%;
+  position:relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+
+  @include media-query($medium-up) {
+    position: absolute;
+  }
+
+  // Only show the background image if map fails to load
+  .map-section--display-map & {
+    display: none !important;
+  }
+
+ .map-section--load-error & {
+    display: block !important;
+  }
+}
+
+// Hide Google maps UI
+.gm-style-cc,
+.gm-style-cc + div {
+  visibility: hidden;
+}

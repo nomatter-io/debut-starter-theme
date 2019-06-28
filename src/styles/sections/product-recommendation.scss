@@ -1,0 +1,7 @@
+.product-recommendations__inner {
+  padding: $section-spacing-small 0;
+
+  @include media-query($medium-up) {
+    padding: $section-spacing 0;
+  }
+}

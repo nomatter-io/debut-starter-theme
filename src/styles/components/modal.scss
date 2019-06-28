@@ -1,0 +1,49 @@
+/*================ Modals ================*/
+.modal {
+  @include transform(translateY(-20px));
+  background-color: $color-bg;
+  bottom: 0;
+  color: $color-text;
+  display: none;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.modal--is-active {
+  @include transform(translateY(0));
+  display: block;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.modal__inner {
+  @include prefix(transform-style, preserve-3d, moz webkit spec);
+  height: 100%;
+}
+
+.modal__centered {
+  @include transform(translateY(-50%));
+  position: relative;
+  top: 50%;
+
+  .no-csstransforms & {
+    top: 20%;
+  }
+}
+
+.modal__close {
+  border: 0;
+  padding: $gutter-site;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  .icon {
+    font-size: em(20);
+  }
+}

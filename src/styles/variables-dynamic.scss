@@ -1,0 +1,61 @@
+// Text colors
+$color-text: var(--color-text);
+$color-text-brightness: var(--color-text-brightness);
+$color-text-shadow: rgba(0,0,0,0.4);
+
+$color-body-text: #69727b;
+$color-sale-text: var(--color-sale-text);
+
+$color-small-button-text-border: var(--color-small-button-text-border);
+$color-small-button-text-border-brightness: var(--color-small-button-text-border-brightness);
+
+$color-text-field: var(--color-text-field);
+$color-text-field-text: var(--color-text-field-text);
+$color-navigation-text: var(--color-navigation-text);
+
+// Button colors
+$color-btn-primary: var(--color-btn-primary);
+$color-btn-primary-brightness: var(--color-btn-primary-brightness);
+
+$color-btn-primary-text: var(--color-btn-primary-text);
+
+// Backgrounds
+$color-body: var(--color-body);
+$color-bg: var(--color-bg);
+$color-drawer-background: rgba(0, 0, 0, 0.6);
+$color-bg-alt: var(--color-bg-alt);
+
+// Overlays
+$color-overlay-title-text: var(--color-overlay-title-text);
+$color-overlay-title-text-brightness: var(--color-overlay-title-text-brightness);
+$color-image-overlay: var(--color-image-overlay);
+$opacity-image-overlay: var(--opacity-image-overlay);
+$hover-overlay-opacity: var(--hover-overlay-opacity);
+
+// Border colors
+$color-border: var(--color-border);
+$color-border-brightness: var(--color-border-brightness);
+
+$color-border-form: #949494;
+
+/*================ Typography ================*/
+$font-weight-body--bold: var(--font-weight-body--bold);
+$font-weight-body--bolder: var(--font-weight-body--bolder);
+$font-weight-header--bold: var(--font-weight-header--bold);
+
+$font-stack-header: var(--font-stack-header);
+$font-style-header: var(--font-style-header);
+$font-weight-header: var(--font-weight-header);
+
+$font-stack-body: var(--font-stack-body);
+$font-style-body: var(--font-style-body);
+$font-weight-body: var(--font-weight-body);
+
+$font-size-header: 26 * 1px;
+$font-bold-titles: var(--font-bold-titles);
+
+$font-size-base: 18px;
+
+// URLs
+$ajax-loader-url: #{'//cdn.shopify.com/s/files/1/0040/7984/5425/t/1/assets/ajax-loader.gif?171'};
+$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0040/7984/5425/t/1/assets/ico-select.svg?171'};

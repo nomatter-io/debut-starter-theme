@@ -1,0 +1,76 @@
+/*================ #Tables ================*/
+table {
+  margin-bottom: $gutter-site / 2;
+
+  a {
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+th {
+  font-family: $font-stack-header;
+  font-style: $font-style-header;
+  font-weight: $font-weight-body--bold;
+}
+
+th,
+td {
+  text-align: left;
+  border: 1px solid $color-border;
+  padding: 10px 14px;
+}
+
+tbody th,
+tfoot th {
+  font-weight: normal;
+}
+
+
+/*============================================================================
+  Responsive tables, defined with .responsive-table on table element.
+==============================================================================*/
+@include media-query($small) {
+  .responsive-table {
+    thead {
+      display: none;
+    }
+
+    th,
+    td {
+      float: left;
+      clear: left;
+      width: 100%;
+      text-align: right;
+      padding: $gutter-site / 2;
+      border: 0;
+      margin: 0;
+    }
+
+    th::before,
+    td::before {
+      content: attr(data-label);
+      float: left;
+      text-align: center;
+      font-size: 12px;
+      padding-right: 10px;
+      font-weight: normal;
+    }
+  }
+
+  .responsive-table__row + .responsive-table__row,
+  tfoot > .responsive-table__row:first-child {
+    position: relative;
+    margin-top: 10px;
+    padding-top: $gutter-site;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: $gutter-site / 2;
+      right: $gutter-site / 2;
+      border-bottom: 1px solid $color-border;
+    }
+  }
+}

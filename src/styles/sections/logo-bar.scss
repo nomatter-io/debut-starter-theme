@@ -1,0 +1,33 @@
+.logo-bar {
+  list-style: none;
+  text-align: center;
+  margin-bottom: -$section-spacing-small;
+}
+
+@include media-query($medium-up) {
+  .logo-bar--large {
+    margin-bottom: -$section-spacing;
+  }
+}
+
+.logo-bar__item {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 160px;
+  margin: 0 ($section-spacing / 2) $section-spacing-small;
+}
+
+@include media-query($medium-up) {
+  .logo-bar__item--large {
+    margin-bottom: $section-spacing;
+  }
+}
+
+.logo-bar__image {
+  display: block;
+  margin: 0 auto;
+}
+
+.logo-bar__link {
+  display: block;
+}

@@ -1,0 +1,162 @@
+.search-bar__form {
+  display: table;
+  width: 100%;
+  position: relative;
+  height: calc(46em / 16);
+  border: 1px solid transparent;
+}
+
+@include media-query($small) {
+  .search-bar__form {
+    width: 100%;
+  }
+}
+
+.search-bar__submit .icon {
+  position: relative;
+  top: -1px;
+  width: 1.2rem;
+  height: auto;
+}
+
+.search-bar__submit,
+.search-header__submit {
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 12px;
+  height: 100%;
+  z-index: 1;
+}
+
+.search-header__input,
+.search-bar__input {
+  background-color: transparent;
+  border-radius: $border-radius;
+  color: $color-text;
+  border-color: transparent;
+  padding-right: calc(35em / 16);
+  width: 100%;
+  min-height: 44px;
+
+  &::-webkit-input-placeholder {
+    @include placeholder-text($color-text);
+  }
+
+  &::-moz-placeholder {
+    @include placeholder-text($color-text);
+  }
+
+  &:-ms-input-placeholder {
+    @include placeholder-text($color-text, 0);
+  }
+
+  &::-ms-input-placeholder {
+    @include placeholder-text($color-text, 1);
+  }
+}
+
+.search-bar__input {
+  border: 1px solid transparent;
+
+  &:focus {
+    border-color: transparent;
+  }
+}
+
+.search-bar__close {
+  padding: calc(10em / 16) .75em;
+
+  .icon {
+    vertical-align: top;
+    width: 1.2rem;
+    height: auto;
+  }
+}
+
+/*============================================================================
+  The search submit button has pointer-events: none which also
+  effects the :hover style. This forces the style to be applied.
+==============================================================================*/
+.search-header__input:hover + .btn--link {
+  color: $color-text-focus;
+}
+
+/*================ Mobile Search Bar ================*/
+
+.search-bar {
+  border-bottom: 1px solid $color-border;
+  padding: 0 ($gutter-site / 2);
+  z-index: 1000;
+}
+
+.search-bar__table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.search-bar__table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.search-bar__form-wrapper {
+  width: 90%;
+}
+
+/*================ Header Search ================*/
+.search-header {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  max-width: calc(30em / 16);
+  vertical-align: middle;
+
+  &.search--focus {
+    max-width: 250px;
+  }
+}
+
+.search-header__input {
+  cursor: pointer;
+}
+
+.search--focus {
+  .search-header__input {
+    outline: none;
+    border-color: $color-border-form;
+    cursor: auto;
+  }
+
+  .search-header__submit {
+    pointer-events: auto;
+  }
+}
+
+.search-header__submit {
+  pointer-events: none;
+}
+
+.search-header,
+.search-header__submit {
+  transition: all 0.35s cubic-bezier(0.29, 0.63, 0.44, 1);
+}
+
+.no-svg {
+  .site-header__search {
+    display: inline-block;
+  }
+
+  .search-header {
+    max-width: none;
+  }
+
+  .search__input {
+    width: auto;
+    padding-left: 60px;
+  }
+}

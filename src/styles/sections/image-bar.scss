@@ -1,0 +1,97 @@
+.image-bar {
+  overflow: hidden;
+
+  @include media-query($small) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.image-bar__item {
+  display: block;
+  color: $color-overlay-title-text;
+  background: {
+    repeat: no-repeat;
+    position: 50% 50%;
+    size: cover;
+  }
+}
+
+.image-bar__link {
+  &:hover,
+  &:focus {
+    .image-bar__overlay::before {
+      opacity: $hover-overlay-opacity;
+    }
+  }
+
+  &:focus {
+    position: relative;
+    z-index: 2;
+
+    .image-bar__content {
+      @include default-focus-ring();
+    }
+  }
+}
+
+.image-bar__content, .image-bar__item {
+  position: relative;
+  width: 100%;
+
+  .image-bar--x-small & {
+    height: 94px;
+  }
+
+  .image-bar--small & {
+    height: 225px;
+  }
+
+  .image-bar--medium & {
+    height: 357px;
+  }
+
+  .image-bar--large & {
+    height: 488px;
+  }
+
+  .image-bar--x-large & {
+    height: 582px;
+  }
+
+  @include media-query($medium-up) {
+    .image-bar--x-small & {
+      height: 125px;
+    }
+
+    .image-bar--small & {
+      height: 300px;
+    }
+
+    .image-bar--medium & {
+      height: 475px;
+    }
+
+    .image-bar--large & {
+      height: 650px;
+    }
+
+    .image-bar--x-large & {
+      height: 775px;
+    }
+  }
+}
+
+.image-bar__overlay {
+  @include overlay;
+}
+
+.image-bar__caption {
+  position: absolute;
+  top: 50%;
+  @include transform(translateY(-50%));
+  transition: $transition-link-hover;
+  width: 100%;
+  text-align: center;
+  text-shadow: 0 0 4px $color-text-shadow;
+}
